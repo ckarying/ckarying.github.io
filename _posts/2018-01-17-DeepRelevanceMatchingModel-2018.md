@@ -86,6 +86,8 @@ Representaion-focused model，主要关注文章整体的意思，因为他们�
 ### Term Gating Network
 term重要性的计算，很简单，就是一个softmax，不过没理解，是怎么把变长的query变长一个定长的向量的。
 
+![](http://latex.codecogs.com/gif.latex?\g_i=\frac{exp(w_g*x_i^g)}{\sum{w_g*x_j^g)}})
+
 对于输入的x，文章里面尝试了两种不同的方式：
 + Term Vector：利用term的vector信息作为输入
 + IDF：利用term的idf作为输入，w变化为单一值
