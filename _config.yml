@@ -78,11 +78,14 @@ service-worker: true
 
 # Friends
 friends: [
- {
-        title: "Apple",
-        href: "https://apple.com"
+    {
+        title: "DeepMind",
+        href: "https://deepmind.com/"
     },{	
-        title: "Apple Developer",
-        href: "https://developer.apple.com/"
+        title: "Google Scholar",
+        href: "https://scholar.google.com/"
+    }, {
+        title: "colah",
+        href: "http://colah.github.io/"    
     }
 ]
