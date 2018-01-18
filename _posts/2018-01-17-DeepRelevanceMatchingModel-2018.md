@@ -21,13 +21,10 @@ http://www.bigdatalab.ac.cn/~gjf/papers/2016/CIKM2016a_guo.pdf
 2.文章认为，matching model需要的是relevance，而nlp要解决的是semantic，这两者之间是不同的。
 
 # Introduction
-
 1. 文章里面提出了一个观点，认为人工特征，需要消耗时间，并且是不完全、很特殊的。而dnn本身可以做representation，可以自动的从训练数据中学习到抽象结构和特征，按照不同的level，可以对特征进行不同层级的抽象。
 
 2. 目前的deep matching model，按照结构，可以大致分为两类：
-
 + Representation-focused model，主要用于将两端的文本分别进行抽象表示，然后再对其进行matching，典型的就是DSSM
-
 + Interaction-focused model，这类算法，先在建立两个文本局部间的interaction（类似Miss match），然后再用dnn，学习到局部关联的信息中的pattern，例如DeepMatch
 
 3. 文章提出了一个观点，认为目前的nlp任务关注两个文本间的sematic relation，但是在matching问题中，我们其实只关注是否相关。
