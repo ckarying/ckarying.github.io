@@ -11,18 +11,18 @@ tags:                               #标签
     - IR
     - Deep Learing
 ---
-# Paper
+## Paper
 A Deep Relevance Matching Model for Ad-hoc Retrieval
 
 http://www.bigdatalab.ac.cn/~gjf/papers/2016/CIKM2016a_guo.pdf
 
-# Abstract
+## Abstract
 1.Matching model要解决的问题，是两个文本的匹配问题，对于deep matching model的做法，主要是在上面直接应用nlp的技术，例如Q&A。
 
 2.文章认为，matching model需要的是relevance，而nlp要解决的是semantic，这两者之间是不同的。
 
 
-# Introduction
+## Introduction
 1.文章里面提出了一个观点，认为人工特征，需要消耗时间，并且是不完全、很特殊的。而dnn本身可以做representation，可以自动的从训练数据中学习到抽象结构和特征，按照不同的level，可以对特征进行不同层级的抽象。
 
 2.目前的deep matching model，按照结构，可以大致分为两类：
@@ -41,14 +41,14 @@ http://www.bigdatalab.ac.cn/~gjf/papers/2016/CIKM2016a_guo.pdf
 + 提出了一个网络结构，可以很好的描述这3个区别
 + 对比了DRMM和现有的matching 算法
 
-# Problem
+## Problem
 1.Matching problem，可以用下式来表示，对于文本T1和T2，通过对文本进行表示，一般的做法是表示为向量，F是scoring function，用于metric两个向量的相似程度。从建模看，matching问题和很多的NLP问题是相似的，因此很多场景下，直接套用了NLP的做法。
 
 2.Representation-focused model，主要工作在于对于文本的表示，因此是相对比较复杂的函数，F会选择比较简单的形式。DSSM中，前者是一个复杂的前向神经网络，而后者只是一个简单的cosine，这种模型一般就是金字塔结构。
 
 3.Interaction-focused model，利用local interaction的基本特征作为dnn的输入，在这种结构中，两个函数的复杂程度会完全相反。
 
-# Semantic matching VS relevance matching
+## Semantic matching VS relevance matching
 1.Semantic matching任务中，两个文本同质，并且包含很多口语化的词，key factors：
 + Similarity matching signals： 相比较精确匹配，需要可以对比两个文本的word、phase、sentence的semantic relation。
 + Composition meanings：nlp任务中，文本会比较口语化，利用grammatical结构对文本进行处理，比直接将文本变成COW或者sequence会好很多。
@@ -61,7 +61,7 @@ http://www.bigdatalab.ac.cn/~gjf/papers/2016/CIKM2016a_guo.pdf
 
 Representaion-focused model，主要关注文章整体的意思，因为他们是分别表示的，直到最后才进行了cross，很多精确匹配的信息已经被丢失了。
 
-# Model
+## Model
 文章中提出了一个DRMM的模型，相比较representatin-focused，新模型更加接近于interaction-focused model，主要是因为representation model不可避免的会丢失掉精确match的部分信息。
 模型的构建，大致可以分为4步：
 + 构建query、doc间的local interaction特征，最简单的就是直接用word2vec计算cosine
@@ -73,25 +73,25 @@ Representaion-focused model，主要关注文章整体的意思，因为他们�
 + 在大量unlabel的数据上训练word2vec，比在部分有groud truth的数据上，训练得到的representation结果会更可靠
 + 利用先验的特征表示，模型可以更focus在relevace match上，降低模型的复杂程度。
 
-## Matching Histogram Mapping
+### Matching Histogram Mapping
 文章提出了两类matching matrix的计算方式
 + 第一类是和position有关的，但是要做zero-padding，这种做法对短文本会比较的不公平。
 + 第二类是和position无关的，可以将local interaction进行统计表示。文中的做法是利用histogram进行表示。在histogram的计算过程中，做了一个trick，就是对于精确命中的term，单独作为一个bin，因为这种特征的信息量特别大。
 
-## Feed Forward Matching Network
+### Feed Forward Matching Network
 文章中有一次提出了，relevacen matching是位置无关的，而CNN是位置有关的，所以这里没有使用CNN，对于特殊的pooling方式，例如MV-LSTM的K-max pooling也提出了质疑，认为对于长文本会有bias。
 
-## Term Gating Network
+### Term Gating Network
 term重要性的计算，很简单，就是一个softmax，不过没理解，是怎么把变长的query变长一个定长的向量的。
 
 对于输入的x，文章里面尝试了两种不同的方式：
 + Term Vector：利用term的vector信息作为输入
 + IDF：利用term的idf作为输入，w变化为单一值
 
-# Model Training
+## Model Training
 模型训练过程中，利用了hinge loss
 
-# Experiment
+## Experiment
 文章中，对比了传统的QL、BM25，representation的DSSM，interaction的DRMM，从结果看，反而是传统的算法有最好的效果。
 
 另外，调整了DRMM的不同部分，发现DRMM的效果，主要来自于输入的直方图，如果修改为一个dynamic cnn，效果会打折比较多。
