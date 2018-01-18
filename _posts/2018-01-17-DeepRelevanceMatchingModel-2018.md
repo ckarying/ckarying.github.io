@@ -48,6 +48,8 @@ http://www.bigdatalab.ac.cn/~gjf/papers/2016/CIKM2016a_guo.pdf
 
 3.Interaction-focused model，利用local interaction的基本特征作为dnn的输入，在这种结构中，两个函数的复杂程度会完全相反。
 
+![模型对比图](http://chuantu.biz/t6/209/1516277037x-1404755708.png)
+
 ## Semantic matching VS relevance matching
 1.Semantic matching任务中，两个文本同质，并且包含很多口语化的词，key factors：
 + Similarity matching signals： 相比较精确匹配，需要可以对比两个文本的word、phase、sentence的semantic relation。
@@ -91,7 +93,7 @@ term重要性的计算，很简单，就是一个softmax，不过没理解，是
 ## Model Training
 模型训练过程中，利用了hinge loss
 
-$L(q,d^+,d^-;\Phi)$
+$$L(q,d^+,d^-;\Phi)$$
 
 ## Experiment
 文章中，对比了传统的QL、BM25，representation的DSSM，interaction的DRMM，从结果看，反而是传统的算法有最好的效果。
