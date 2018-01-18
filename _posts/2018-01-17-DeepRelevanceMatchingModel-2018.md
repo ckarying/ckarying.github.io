@@ -93,7 +93,7 @@ term重要性的计算，很简单，就是一个softmax，不过没理解，是
 ## Model Training
 模型训练过程中，利用了hinge loss
 
-$$L(q,d^+,d^-;\Phi)$$
+![](http://latex.codecogs.com/gif.latex?\L(q,d^+,d^-;\Phi)=max(0,1-s(q,d^+)+s(q,d^-)))
 
 ## Experiment
 文章中，对比了传统的QL、BM25，representation的DSSM，interaction的DRMM，从结果看，反而是传统的算法有最好的效果。
