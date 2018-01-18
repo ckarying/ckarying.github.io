@@ -12,6 +12,7 @@ tags:                               #标签
     - Deep Learing
 ---
 # A Deep Relevance Matching Model for Ad-hoc Retrieval
+
 http://www.bigdatalab.ac.cn/~gjf/papers/2016/CIKM2016a_guo.pdf
 
 # Abstract
